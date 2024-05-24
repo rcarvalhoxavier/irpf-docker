@@ -7,6 +7,7 @@
 
 ANO=2024
 VERSAO=1.1
+REPO_IMAGE_TAG=ghcr.io/rcarvalhoxavier/irpf-docker:v$(ANO)-$(VERSAO)
 
 build:
 	@echo "Construindo a imagem Docker para o ano $(ANO)..."
@@ -15,7 +16,7 @@ build:
 	--build-arg VERSAO=$(VERSAO) \
 	--network=host \
 	-f Dockerfile \
-	-t irpf-$(ANO) .
+	-t $(REPO_IMAGE_TAG) .
 
 build-x:
 	@echo "Construindo a imagem Docker para o ano $(ANO)..."
@@ -24,12 +25,11 @@ build-x:
 	--label org.opencontainers.image.source=https://github.com/rcarvalhoxavier/irpf-docker \
 	--label org.opencontainers.image.title=irpf-docker \
 	--label org.opencontainers.image.url=https://github.com/rcarvalhoxavier/irpf-docker \
-	--tag ghcr.io/rcarvalhoxavier/irpf-docker:master \
 	--build-arg ANO=$(ANO) \
 	--build-arg VERSAO=$(VERSAO) \
 	--network=host \
 	-f Dockerfile \
-	-t ghcr.io/rcarvalhoxavier/irpf-$(ANO) .
+	-t $(REPO_IMAGE_TAG) .
 
 
 run:
@@ -37,6 +37,6 @@ run:
 	docker run -it --rm --name irpf -e DISPLAY=$(DISPLAY) \
 		-v $(HOME):/home/irpf \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
-		irpf-$(ANO)
+		$(REPO_IMAGE_TAG)
 
 all: build run

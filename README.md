@@ -1,6 +1,6 @@
 # Projeto IRPF Docker
 
-Este repositório contém um Dockerfile e um Makefile para construir e executar um container Docker que baixa e executa o aplicativo IRPF para o ano especificado.
+Este repositório contém um Dockerfile e um Makefile para construir e executar um container Docker que baixa e executa o aplicativo IRPF para o ano e versão especificada.
 
 ## Pré-requisitos
 
@@ -9,17 +9,17 @@ Este repositório contém um Dockerfile e um Makefile para construir e executar 
 
 ## Estrutura do Projeto
 
-- `Dockerfile`: Contém as instruções para construir a imagem Docker.
-- `entrypoint.sh`: Script de entrada usado para iniciar o aplicativo IRPF.
-- `Makefile`: Contém alvos para construir e executar o container Docker.
+- `Dockerfile`: Contém os comandos para construir a imagem Docker.
+- `entrypoint.sh`: Script de entrada usado para iniciar o IRPF.
+- `Makefile`: Contém os métodos para construir e executar o container Docker.
 
 ## Instruções
 
 ### 1. Clone o repositório
 
 ```sh
-git clone https://github.com/seu-usuario/projeto-irpf-docker.git
-cd projeto-irpf-docker
+git clone git@github.com:rcarvalhoxavier/irpf-docker.git
+cd irpf-docker
 ```
 
 ### 2. Defina o ano e versão no Makefile
@@ -37,6 +37,8 @@ make build
 
 
 ### 4. Execute o container
+
+Caso a imagem não exista localmente, irá baixar do repositório de imagens do github
 
 ```sh
 make run
