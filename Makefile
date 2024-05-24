@@ -29,7 +29,7 @@ build-x:
 	--build-arg VERSAO=$(VERSAO) \
 	--network=host \
 	-f Dockerfile \
-	-t ghcr.io/rcarvalhoxavier/irpf-$(ANO) --push  .
+	-t ghcr.io/rcarvalhoxavier/irpf-$(ANO) .
 
 
 run:
