@@ -78,7 +78,7 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            irpf:2024-1.1
+            irpf:2024-1-1
             irpf:2024
             irpf:latest
             irpf
