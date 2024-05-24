@@ -14,7 +14,7 @@ build:
 	--build-arg ANO=$(ANO) \
 	--build-arg VERSAO=$(VERSAO) \
 	--network=host \
-	-f irpf.dockerfile \
+	-f Dockerfile \
 	-t irpf-$(ANO) .
 
 run:
