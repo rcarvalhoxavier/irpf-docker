@@ -17,6 +17,21 @@ build:
 	-f Dockerfile \
 	-t irpf-$(ANO) .
 
+build-x:
+	@echo "Construindo a imagem Docker para o ano $(ANO)..."
+	docker buildx build --cache-from type=gha --cache-to type=gha,mode=max  \
+	--label org.opencontainers.image.licenses=MIT \
+	--label org.opencontainers.image.source=https://github.com/rcarvalhoxavier/irpf-docker \
+	--label org.opencontainers.image.title=irpf-docker \
+	--label org.opencontainers.image.url=https://github.com/rcarvalhoxavier/irpf-docker \
+	--tag ghcr.io/rcarvalhoxavier/irpf-docker:master \
+	--build-arg ANO=$(ANO) \
+	--build-arg VERSAO=$(VERSAO) \
+	--network=host \
+	-f Dockerfile \
+	-t ghcr.io/rcarvalhoxavier/irpf-$(ANO) --push  .
+
+
 run:
 	@echo "Executando o container Docker para o ano $(ANO)..."
 	docker run -it --rm --name irpf -e DISPLAY=$(DISPLAY) \
