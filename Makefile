@@ -34,7 +34,8 @@ build-x:
 
 run:
 	@echo "Executando o container Docker para o ano $(ANO)..."
-	docker run -it --rm --name irpf -e DISPLAY=$(DISPLAY) \
+	docker run -it --rm --name irpf --network host \
+		-e DISPLAY=$(DISPLAY) \
 		-v $(HOME):/home/irpf \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
 		$(REPO_IMAGE_TAG)
