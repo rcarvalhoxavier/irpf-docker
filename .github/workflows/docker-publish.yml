@@ -9,10 +9,10 @@ on:
   schedule:
     - cron: '42 1 * * *'
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
     tags: [ '*' ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 env:
   # Use docker.io for Docker Hub if empty
