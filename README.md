@@ -1,18 +1,54 @@
-# Programas da Receita Federal para apuração e declaração de imposto de renda
+# Projeto IRPF Docker
 
-Container Docker dos programas que os brasileiros mais gostam de instalar todo ano.
+Este repositório contém um Dockerfile e um Makefile para construir e executar um container Docker que baixa e executa o aplicativo IRPF para o ano especificado.
 
-## via Docker Compose
+## Pré-requisitos
 
-- Use `docker-compose up irpf-2022` para iniciar o IRPF 2022
+- Docker
+- Make
 
-## Versões anteriores
+## Estrutura do Projeto
 
-Úteis para consultar declarações anteriores
+- `Dockerfile`: Contém as instruções para construir a imagem Docker.
+- `entrypoint.sh`: Script de entrada usado para iniciar o aplicativo IRPF.
+- `Makefile`: Contém alvos para construir e executar o container Docker.
 
-- Use `docker-compose up irpf-2021` para iniciar o IRPF 2021
-- Use `docker-compose up irpf-2020` para iniciar o IRPF 2020
-- Use `docker-compose up irpf-2019` para iniciar o IRPF 2019
-- Use `docker-compose up gcap-2019` para iniciar o GCAP 2019
-- Use `docker-compose up leao-2019` para iniciar o Carnê-Leão 2019
-- Use `docker-compose up irpf-2018` para iniciar o IRPF 2018
+## Instruções
+
+### 1. Clone o repositório
+
+```sh
+git clone https://github.com/seu-usuario/projeto-irpf-docker.git
+cd projeto-irpf-docker
+```
+
+### 2. Defina o ano e versão no Makefile
+
+```makefile
+ANO=2024
+VERSAO=1.1
+```
+
+### 3. Construa a imagem Docker
+
+```sh
+make build
+```
+
+
+### 4. Execute o container
+
+```sh
+make run
+```
+
+### 5. Construa e Execute
+
+```sh
+make all
+```
+
+
+## Contribuição
+
+Sinta-se à vontade para abrir issues e pull requests para melhorar este projeto.
