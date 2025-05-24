@@ -25,8 +25,8 @@ cd irpf-docker
 ### 2. Defina o ano e versão no Makefile
 
 ```makefile
-ANO=2024
-VERSAO=1.1
+ANO=2025
+VERSAO=1.3
 ```
 
 ### 3. Construa a imagem Docker

@@ -9,10 +9,11 @@ on:
   schedule:
     - cron: '42 1 * * *'
   push:
-    branches: [ "main" ]
-    tags: [ '*' ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -81,8 +82,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            ANO=2024
-            VERSAO=1.1
+            ANO=2025
+            VERSAO=1.3
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
