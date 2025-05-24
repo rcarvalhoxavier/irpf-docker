@@ -5,8 +5,8 @@
 #ANO=2023
 #VERSAO=1.5
 
-ANO=2024
-VERSAO=1.1
+ANO=2025
+VERSAO=1.3
 REPO_IMAGE_TAG=ghcr.io/rcarvalhoxavier/irpf-docker:v$(ANO)-$(VERSAO)
 
 build:
