@@ -5,9 +5,9 @@
 #ANO=2023
 #VERSAO=1.5
 
-ANO=2025
+ANO=2026
 VERSAO=1.3
-REPO_IMAGE_TAG=ghcr.io/rcarvalhoxavier/irpf-docker:v$(ANO)-$(VERSAO)
+REPO_IMAGE_TAG=ghcr.io/rcarvalhoxavier/irpf-docker:main
 
 build:
 	@echo "Construindo a imagem Docker para o ano $(ANO)..."
