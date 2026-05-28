@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM openjdk:25
 
 ARG ANO
 ENV ANO=$ANO
