@@ -1,4 +1,4 @@
-FROM openjdk:27-ea-trixie
+FROM eclipse-temurin:21-jdk
 
 ARG ANO
 ENV ANO=$ANO
