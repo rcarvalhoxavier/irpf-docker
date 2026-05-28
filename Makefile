@@ -6,7 +6,7 @@
 #VERSAO=1.5
 
 ANO=2026
-VERSAO=1.7
+VERSAO=1.3
 REPO_IMAGE_TAG=ghcr.io/rcarvalhoxavier/irpf-docker:main
 
 build:
