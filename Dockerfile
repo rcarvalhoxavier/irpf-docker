@@ -1,4 +1,4 @@
-FROM openjdk:25
+FROM openjdk:27-ea-trixie
 
 ARG ANO
 ENV ANO=$ANO
