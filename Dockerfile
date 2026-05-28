@@ -1,17 +1,21 @@
-FROM eclipse-temurin:11-jdk
+FROM eclipse-temurin:11-jdk-jammy
 
 ARG ANO
 ENV ANO=$ANO
 ARG VERSAO
 ENV VERSAO=$VERSAO
 
-# Runtime para Swing/AWT com DISPLAY do host (X11). Sem -dev nem libcanberra (removido no Ubuntu 24+).
+# Swing/AWT (X11 no host) + Firefox (tarball Mozilla; pacote apt no Ubuntu é snap e não roda no Docker).
 RUN apt-get update \
     && apt-get install -o APT::Immediate-Configure=0 -y --no-install-recommends \
         ca-certificates \
         wget \
         unzip \
+        xz-utils \
+        xdg-utils \
         fontconfig \
+        libasound2 \
+        libdbus-glib-1-2 \
         libfreetype6 \
         libgtk-3-0 \
         libx11-6 \
@@ -19,6 +23,11 @@ RUN apt-get update \
         libxrender1 \
         libxtst6 \
         libxi6 \
+    && wget -q -O /tmp/firefox.tar.xz \
+        "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=pt-BR" \
+    && tar -xJf /tmp/firefox.tar.xz -C /opt \
+    && ln -sf /opt/firefox/firefox /usr/local/bin/firefox \
+    && rm /tmp/firefox.tar.xz \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://downloadirpf.receita.fazenda.gov.br/irpf/${ANO}/irpf/arquivos/IRPF${ANO}-$VERSAO.zip -O IRPF.zip
