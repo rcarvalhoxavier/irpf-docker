@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:11-jdk
 
 ARG ANO
 ENV ANO=$ANO
